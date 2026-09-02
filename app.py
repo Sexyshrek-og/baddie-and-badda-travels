@@ -278,7 +278,7 @@ elif nav == "📝 Book Your Safar":
             </div>
 
             <div class="form-group">
-                <label>🔥 Special Jugaad / Demand (Optional)</label>
+                <label> Special Jugaad / Demand (Optional)</label>
                 <textarea name="special_requests" rows="3" placeholder="Candle light dinner, local cooked food, extra bed..."></textarea>
             </div>
 
@@ -297,7 +297,7 @@ elif nav == "📞 Contact Us":
     with col_x:
         st.markdown("""
         **Head Office (Baddie and Badda's Den):**  
-        Suite 420, Connaught Place, New Delhi, India 🇮🇳  
+        Burdwan, near raj collage, West Bengal, India 🇮🇳  
         
         **WhatsApp / Call:**  
         +91 99009 990099
