@@ -149,34 +149,145 @@ elif nav == "🗺️ Tour Packages":
 
 # --- ONLINE BOOKING PAGE ---
 elif nav == "📝 Book Your Safar":
-    st.subheader("⚡ Book Your Spot Now")
-    st.caption("Fill in your details below to lock in your trip with Badda!")
+    st.subheader("⚡ Seat Pack Karo - Booking On!")
+    st.write("Apni details bharo, seedha Badda ke inbox me message jayega!")
 
-    with st.form("booking_form", clear_on_submit=True):
-        col1, col2 = st.columns(2)
+    # Fetch key from secrets safely
+    api_key = st.secrets.get("WEB3FORMS_KEY", "")
+
+    # Desi / Graffiti Styled Client-Side Form
+    form_html = f"""
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
         
-        with col1:
-            full_name = st.text_input("Full Name*", placeholder="e.g. Rahul Sharma")
-            email = st.text_input("Email Address*", placeholder="rahul@example.com")
-            phone = st.text_input("WhatsApp Number*", placeholder="+91 98765 43210")
-            
-        with col2:
-            chosen_tour = st.selectbox("Select Destination", list(tours.keys()))
-            travel_date = st.date_input("Travel Date", min_value=date.today())
-            guests = st.number_input("Number of Travellers", min_value=1, max_value=20, value=2)
-
-        special_requests = st.text_area(
-            "Special Requests / Notes", 
-            placeholder="Let us know about dietary needs, extra beds, or special arrangements..."
-        )
+        .desi-container {{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #FFE600;
+            box-shadow: 0px 0px 15px rgba(255, 230, 0, 0.2);
+            color: #FFFFFF;
+        }}
         
-        submitted = st.form_submit_button("🚀 Submit Booking Request", use_container_width=True)
+        .desi-header {{
+            font-family: 'Yatra One', cursive;
+            color: #FFE600;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #000000;
+        }}
 
-    if submitted:
-        if not full_name or not email or not phone:
-            st.error("Please fill in all required fields marked with *.")
-        else:
-            st.success("Booking request submitted! Check your email for confirmation.")
+        .form-group {{
+            margin-bottom: 18px;
+        }}
+
+        label {{
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #FFC700;
+            font-size: 14px;
+        }}
+
+        input, select, textarea {{
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #333333;
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            box-sizing: border-box;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s ease-in-out;
+        }}
+
+        input:focus, select:focus, textarea:focus {{
+            border-color: #FFE600;
+            box-shadow: 0 0 8px rgba(255, 230, 0, 0.4);
+        }}
+
+        .submit-btn {{
+            background: linear-gradient(135deg, #FFE600, #FF9900);
+            color: #000000;
+            font-family: 'Yatra One', cursive;
+            font-size: 18px;
+            letter-spacing: 1px;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 3px 3px 0px #000;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }}
+
+        .submit-btn:hover {{
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0px #000;
+            background: linear-gradient(135deg, #FF9900, #FFE600);
+        }}
+
+        .submit-btn:active {{
+            transform: translateY(1px);
+            box-shadow: 1px 1px 0px #000;
+        }}
+    </style>
+
+    <div class="desi-container">
+        <div class="desi-header">🚀 Safar Ki Details Bhejo</div>
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="{api_key}">
+            <input type="hidden" name="subject" value="Naya Safar Booking - Baddie & Badda">
+            <input type="hidden" name="from_name" value="Baddie & Badda Travels">
+
+            <div class="form-group">
+                <label>👤 Full Name (Kaun Ho Aap?)*</label>
+                <input type="text" name="name" required placeholder="Naam likho yahan...">
+            </div>
+
+            <div class="form-group">
+                <label>📧 Email Address*</label>
+                <input type="email" name="email" required placeholder="Sahi email daalna response ke liye">
+            </div>
+
+            <div class="form-group">
+                <label>📱 WhatsApp Number (Aage Ki Baat Ke Liye)*</label>
+                <input type="tel" name="phone" required placeholder="e.g. 9876543210">
+            </div>
+
+            <div class="form-group">
+                <label>🗺️ Destination Select Karo</label>
+                <select name="destination">
+                    <option value="Goa Chill & Chilling">Goa Chill & Chilling (₹14,999)</option>
+                    <option value="Manali - Pahad & Chai Vibe">Manali - Pahad & Chai Vibe (₹18,500)</option>
+                    <option value="Jaipur & Udaipur - Shahi Andaaz">Jaipur & Udaipur - Shahi Andaaz (₹22,000)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>📅 Travel Date (Kab Nikalna Hai?)</label>
+                <input type="date" name="travel_date" required>
+            </div>
+
+            <div class="form-group">
+                <label>👥 Number of Travellers (Kitne Aadmi The?)</label>
+                <input type="number" name="guests" min="1" max="20" value="2">
+            </div>
+
+            <div class="form-group">
+                <label>🔥 Special Jugaad / Demand (Optional)</label>
+                <textarea name="special_requests" rows="3" placeholder="Candle light dinner, local cooked food, extra bed..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">💥 BANGO! BOOKING BHEJO 🚀</button>
+        </form>
+    </div>
+    """
+
+    st.components.v1.html(form_html, height=720, scrolling=True)
 # --- CONTACT PAGE ---
 elif nav == "📞 Contact Us":
     st.subheader("🤙 Bol Bhai Ki Baat Hai")
