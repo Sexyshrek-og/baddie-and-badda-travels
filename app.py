@@ -297,7 +297,7 @@ elif nav == "📞 Contact Us":
     with col_x:
         st.markdown("""
         **Head Office (Baddie and Badda's Den):**  
-        Burdwan, near raj collage, West Bengal, India 🇮🇳  
+        Burdwan, Near Raj Collage, West Bengal, India 🇮🇳  
         
         **WhatsApp / Call:**  
         +91 99009 990099
