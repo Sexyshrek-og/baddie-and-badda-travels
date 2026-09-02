@@ -55,7 +55,7 @@ st.markdown("<div class='tagline'>mazee karwa denge!!</div>", unsafe_allow_html=
 
 # Sidebar Navigation
 st.sidebar.image("https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400", use_container_width=True)
-st.sidebar.title("📌 Ki Baat Hai ")
+st.sidebar.title("📌 Check krle bhai ")
 nav = st.sidebar.radio("Go to:", ["🏠 Home", "🗺️ Tour Packages", "📝 Book Your Safar", "📞 Contact Us"])
 
 # Data: Tour Packages
@@ -249,17 +249,17 @@ elif nav == "📝 Book Your Safar":
             </div>
 
             <div class="form-group">
-                <label>📧 Email Address*</label>
+                <label>Email Address*</label>
                 <input type="email" name="email" required placeholder="Sahi email daalna response ke liye">
             </div>
 
             <div class="form-group">
-                <label>📱 WhatsApp Number (Aage Ki Baat Ke Liye)*</label>
+                <label>WhatsApp Number (Aage Ki Baat Ke Liye)*</label>
                 <input type="tel" name="phone" required placeholder="e.g. 9876543210">
             </div>
 
             <div class="form-group">
-                <label>🗺️ Destination Select Karo</label>
+                <label>Destination Select Karo</label>
                 <select name="destination">
                     <option value="Goa Chill & Chilling">Goa Chill & Chilling (₹14,999)</option>
                     <option value="Manali - Pahad & Chai Vibe">Manali - Pahad & Chai Vibe (₹18,500)</option>
@@ -268,12 +268,12 @@ elif nav == "📝 Book Your Safar":
             </div>
 
             <div class="form-group">
-                <label>📅 Travel Date (Kab Nikalna Hai?)</label>
+                <label>Travel Date (Kab Nikalna Hai?)</label>
                 <input type="date" name="travel_date" required>
             </div>
 
             <div class="form-group">
-                <label>👥 Number of Travellers (Kitne Aadmi The?)</label>
+                <label>Number of Travellers (Kitne Aadmi The?)</label>
                 <input type="number" name="guests" min="1" max="20" value="2">
             </div>
 
@@ -282,7 +282,7 @@ elif nav == "📝 Book Your Safar":
                 <textarea name="special_requests" rows="3" placeholder="Candle light dinner, local cooked food, extra bed..."></textarea>
             </div>
 
-            <button type="submit" class="submit-btn">💥 BANGO! BOOKING BHEJO 🚀</button>
+            <button type="submit" class="submit-btn"> Bol Bhai Pack Karlu ? </button>
         </form>
     </div>
     """
