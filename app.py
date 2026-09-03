@@ -303,7 +303,7 @@ elif nav == "📞 Contact Us":
         +91 99009 990099
         
         **Email:**  
-        safarbaddieandbadda@gmail.com
+        safarwithbaddienbadda@gmail.com
         
         **Instagram:**  
         `@baddie_and_badda_travels`
